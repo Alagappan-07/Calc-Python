@@ -12,7 +12,7 @@ def subtract(a: float, b: float):
 
 @app.get("/multiply")
 def multiply(a: float, b: float):
-    returnnn {"result": a * b}
+    return {"result": a * b}
 
 @app.get("/divide")
 def divide(a: float, b: float):
