@@ -1,18 +1,13 @@
-import os
+# src/vul.py
 import json
-import sqlite3
 
 def handle_user_input(user_input):
-    # Bad pattern (illustrative only): command building
-    cmd = f"echo {user_input}"          # concept: command injection risk
-    print("Would run:", cmd)            # but we do NOT execute it
+    clean_input = str(user_input).strip()
 
-    # Bad pattern (illustrative only): SQL building
-    query = f"SELECT * FROM users WHERE name = '{user_input}'"
-    print("Would query:", query)        # but we do NOT run SQL
+    # Safe message
+    message = f"Received input: {clean_input}"
 
-    # Safe parsing instead of pickle
-    data = json.loads('{"demo": "safe"}')
-    return data
+    # Safe JSON output
+    output_json = json.dumps({"status": "ok", "input": clean_input})
 
-print(handle_user_input("example"))
+    return message, output_json
