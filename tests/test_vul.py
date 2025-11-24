@@ -1,5 +1,5 @@
 import json
-from src.safe_module import handle_user_input
+from src.vul import handle_user_input  # ✅ corrected module name
 
 def test_handle_user_input_returns_tuple():
     message, output_json = handle_user_input("hello")
